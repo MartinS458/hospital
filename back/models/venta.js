@@ -4,13 +4,13 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var VentaSchema = Schema({
-    slug: {type: String, required: true},
-    precioTotal: {type: Number, required: false},
-    descripcion: {type: String, required: false},
-    fecha: {type:Date, default: Date.now, require: true},
+    slug: {type: String, required: false},
+    precioTotal: {type: Number, required: true},
+    descripcion: {type: String, required: true},
+    fecha: {type:Date, require: false},
     estado: {type: String, required: false},    
     createdAt: {type:Date, default: Date.now, require: true},
-    productos:[{type: Schema.ObjectId, ref:'producto', required: true}],
+    productos:[{type: Schema.ObjectId, ref:'producto', required: false}],
 });
 
 module.exports = mongoose.model('venta', VentaSchema);

@@ -1,7 +1,7 @@
 'use strict'
 
 var Caja = require('../models/caja');
-const registro_caja = async function(req,res){
+const registro_medico = async function(req,res){
     //
     var data = req.body;
     
@@ -10,5 +10,5 @@ const registro_caja = async function(req,res){
     
 }
 module.exports = {
-    registro_caja,
+    registro_medico,
 }

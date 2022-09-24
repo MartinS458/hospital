@@ -6,12 +6,12 @@ var bodyparser = require('body-parser');
 var mongoose = require('mongoose');
 var port = process.env.PORT || 4201;
 
-var empleado_route = require('./routes/empleado'); //aca van a estar inicializadas nuestras rutas
-var caja_route = require('./routes/caja'); 
-var producto_route = require('./routes/producto');
-var venta_route = require('./routes/venta'); 
+var paciente_route = require('./routes/paciente'); //aca van a estar inicializadas nuestras rutas
+var informe_route = require('./routes/informe'); 
+var medicamento_route = require('./routes/medicamento');
+var medico_route = require('./routes/medico'); 
 var admin_route = require('./routes/admin'); 
-mongoose.connect('mongodb://127.0.0.1:27017/polleria',{useUnifiedTopology:true, useNewUrlParser:true},(err, res) =>{
+mongoose.connect('mongodb://127.0.0.1:27017/hospital',{useUnifiedTopology:true, useNewUrlParser:true},(err, res) =>{
     if (err){
         console.log(err);
     }else{
@@ -32,9 +32,9 @@ app.use((req,res,next)=>{
     next();
 });
 
-app.use('/api',empleado_route);
-app.use('/api',caja_route);
-app.use('/api',producto_route);
-app.use('/api',venta_route);
+app.use('/api',paciente_route);
+app.use('/api',informe_route);
+app.use('/api',medicamento_route);
+app.use('/api',medico_route);
 app.use('/api',admin_route);
 module.exports = app;

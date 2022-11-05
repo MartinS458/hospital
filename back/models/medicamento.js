@@ -3,7 +3,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var VentaSchema = Schema({
+var MedicamentoSchema = Schema({
     slug: {type: String, required: false},
     precioTotal: {type: Number, required: true},
     descripcion: {type: String, required: true},
@@ -13,4 +13,4 @@ var VentaSchema = Schema({
     productos:[{type: Schema.ObjectId, ref:'producto', required: false}],
 });
 
-module.exports = mongoose.model('venta', VentaSchema);
+module.exports = mongoose.model('medicamento', MedicamentoSchema);

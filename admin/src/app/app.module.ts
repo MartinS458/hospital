@@ -9,19 +9,21 @@ import { routing } from "./app.routing";
 import { InicioComponent } from './components/inicio/inicio.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { LoginComponent } from './components/login/login.component';
+import { IndexMedicoComponent } from './components/medico/index-medico/index-medico.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     InicioComponent,
     SidebarComponent,
-    LoginComponent
+    LoginComponent,
+    IndexMedicoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,  
-  
+    
     HttpClientModule,
     routing
   ],

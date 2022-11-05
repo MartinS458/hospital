@@ -37,7 +37,7 @@ const login_admin = async function(req,res){
     var data = req.body;
 
     var admins_arr = [];
-
+    
     admins_arr = await Admin.find({email:data.email});
     console.log(admins_arr);
 
@@ -48,10 +48,11 @@ const login_admin = async function(req,res){
         bcrypt.compare(data.password, user.password, async function(error,check){
 
         if(check){
+           console.log(user);
             res.status(200).send({
                 data:user,
                 token: jwt.createToken(user)
-            });
+           });
         }else{
             res.status(200).send({message:'la contraseña no es correcta',data:undefined});
         }

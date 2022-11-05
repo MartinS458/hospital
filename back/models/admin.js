@@ -10,6 +10,7 @@ var AdminSchema = Schema({
     email: {type: String, required: true},
     password: {type: String, required: true},
     dni: {type: String, required: true},
+    rol: {type: String, required: true},
     estado: {type: String, required: false},    
     createdAt: {type:Date, default: Date.now, require: true},
 

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from "@angular/common/http";
+import { NgbPaginationModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,6 +11,7 @@ import { InicioComponent } from './components/inicio/inicio.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { LoginComponent } from './components/login/login.component';
 import { IndexMedicoComponent } from './components/medico/index-medico/index-medico.component';
+import { CreateMedicoComponent } from './components/medico/create-medico/create-medico.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,8 @@ import { IndexMedicoComponent } from './components/medico/index-medico/index-med
     InicioComponent,
     SidebarComponent,
     LoginComponent,
-    IndexMedicoComponent
+    IndexMedicoComponent,
+    CreateMedicoComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +28,8 @@ import { IndexMedicoComponent } from './components/medico/index-medico/index-med
     FormsModule,  
     
     HttpClientModule,
-    routing
+    routing,
+    NgbPaginationModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

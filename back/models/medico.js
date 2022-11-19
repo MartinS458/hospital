@@ -8,7 +8,7 @@ var MedicoSchema = Schema({
     apellido: {type: String, required: true},
     email: {type: String, required: true},
     dni: {type: String, required: true},
-    // slug: {type: String, required: false},
+    genero: {type: String, required: false},
     // gastos: {type: Number, required: true},
     // retiro: {type: Number, required: true},
     // montoTotal: {type: Number, required: false},

@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@angular/localize": "^14.2.10",
+    "@ng-bootstrap/ng-bootstrap": "^13.1.0"
+  }
+}

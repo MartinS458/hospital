@@ -1,22 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AdminService } from 'src/app/services/admin.service';
-import { MedicoService } from 'src/app/services/medico.service';
+import { MedicamentoService } from 'src/app/services/medicamento.service';
 declare var iziToast:any;
 @Component({
-  selector: 'app-create-medico',
-  templateUrl: './create-medico.component.html',
-  styleUrls: ['./create-medico.component.css']
+  selector: 'app-create-medicamento',
+  templateUrl: './create-medicamento.component.html',
+  styleUrls: ['./create-medicamento.component.css']
 })
-export class CreateMedicoComponent implements OnInit {
+export class CreateMedicamentoComponent implements OnInit {
 
-  public medico : any = {
+  public medicamento : any = {
     genero: ''
   };
   public token;
 
   constructor(
-    private _medicoService:MedicoService,
+    private _medicamentoService:MedicamentoService,
     private _adminService:AdminService,
     private _router : Router
   ) { 
@@ -28,8 +28,8 @@ export class CreateMedicoComponent implements OnInit {
 
   registro(registroForm:any){
      if(registroForm.valid){
-console.log(this.medico);
-this._medicoService.registro_medico_admin(this.medico,this.token).subscribe(
+console.log(this.medicamento);
+this._medicamentoService.registro_medicamento_admin(this.medicamento,this.token).subscribe(
   response=>{
 console.log(response);
 iziToast.show({
@@ -38,17 +38,17 @@ iziToast.show({
         color: '#FFF',
         class: 'text-success',
         position: 'topRight',
-        message: 'se registro correctamente el nuevo medico.',        
+        message: 'se registro correctamente el nuevo medicamento.',        
 
       });
-      this.medico={
-        genero:'',
-        nombre:'',
-        apellido:'',
-        dni:'',
-        email:''
+      this.medicamento={
+      
+        producto:'',
+        descripcion:'',
+        precioTotal:'',
+        
       }
-      this._router.navigate(['/panel/medico']);
+      this._router.navigate(['/panel/medicamento']);
   },
   error=>{
 console.log(error);

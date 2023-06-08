@@ -11,7 +11,16 @@ import { InicioComponent } from './components/inicio/inicio.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { LoginComponent } from './components/login/login.component';
 import { IndexMedicoComponent } from './components/medico/index-medico/index-medico.component';
+import { IndexPacienteComponent } from './components/peciente/index-paciente/index-paciente.component';
+import { IndexMedicamentoComponent } from './components/medicamento/index-medicamento/index-medicamento.component';
+import { IndexInformeComponent } from './components/informe/index-informe/index-informe.component';
 import { CreateMedicoComponent } from './components/medico/create-medico/create-medico.component';
+import { CreateMedicamentoComponent } from './components/medicamento/create-medicamento/create-medicamento.component';
+import { CreateInformeComponent } from './components/informe/create-informe/create-informe.component';
+import { EditMedicoComponent } from './components/medico/edit-medico/edit-medico.component';
+import { EditMedicamentoComponent } from './components/medicamento/edit-medicamento/edit-medicamento.component';
+import { EditPacienteComponent } from './components/peciente/edit-paciente/edit-paciente.component';
+import { CreatePacienteComponent } from './components/peciente/create-paciente/create-paciente.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +29,16 @@ import { CreateMedicoComponent } from './components/medico/create-medico/create-
     SidebarComponent,
     LoginComponent,
     IndexMedicoComponent,
-    CreateMedicoComponent
+    IndexPacienteComponent,
+    IndexMedicamentoComponent,
+    CreateMedicoComponent,
+    CreateMedicamentoComponent,
+    CreateInformeComponent,
+    EditMedicoComponent,
+    EditMedicamentoComponent,
+    CreatePacienteComponent,
+    EditPacienteComponent,
+    IndexInformeComponent,
   ],
   imports: [
     BrowserModule,

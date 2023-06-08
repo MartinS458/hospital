@@ -3,34 +3,9 @@
 var Paciente = require('../models/paciente');
 var bcrypt = require('bcrypt-nodejs'); //tenemos que encriptar la contraseña
 var jwt = require('../helpers/jwt');
-const registro_paciente = async function(req,res){
-    //
-    var data = req.body;
-    var paciente_arr, paciente_arr2 = [];
-
-    paciente_arr = await Paciente.find({dni:data.dni});
-    paciente_arr2 = await Paciente.find({email:data.email});
-
-    if (paciente_arr.length ==0 && paciente_arr2.length == 0){        
-        //primero verificamos si me envia una contraseña
-        if(data.password){
-            bcrypt.hash(data.password,null,null, async function(err,hash){
-                if(hash){    
-                    data.password = hash;
-                    var reg = await Paciente.create(data);                
-                    res.status(200).send({data:reg});
-                }else{
-                    res.status(200).send({message:'Error Server', data:undefined});            
-                }
-            })
-        }else{
-            res.status(200).send({message:'No hay una contraseña', data:undefined});    
-        }
-
-
-    }else{
-        res.status(200).send({message:'El correo ya existe en la base de datos', data:undefined});
-    }
+const listar_paciente_filtro_admin = async function(req,res){
+    let reg = await Paciente.find();
+    res.status(200).send({data:reg});
 }
 const login_paciente = async function(req,res){
     var data = req.body;
@@ -58,7 +33,72 @@ const login_paciente = async function(req,res){
     }
 
 }
+const registro_paciente_admin = async function(req,res){
+        var data = req.body;
+        var paciente_arr, paciente_arr2 = [];
+
+        paciente_arr = await Paciente.find({dni:data.dni});
+        paciente_arr2 = await Paciente.find({email:data.email});
+        
+    if(paciente_arr.length ==0 && paciente_arr2.length == 0){
+        var reg = await Paciente.create(data);                
+        res.status(200).send({data:reg});
+            
+    }else{
+            res.status(500).send({message:'hubo un error en el servidor'});
+        }
+} 
+
+const obtener_paciente_admin = async function(req,res){
+   
+    var id = req.params['id'];           
+    var reg = await Paciente.findById({_id:id});
+
+    if(reg){
+        res.status(200).send({data:reg});            
+    }else{
+        res.status(500).send({message: 'NoAccess'});
+        }
+}
+
+const actualizar_paciente_admin = async function(req,res){
+    
+            var id = req.params['id'];
+            var data = req.body;
+            var reg = await Paciente.findByIdAndUpdate({_id:id},{
+                nombre : data.nombre,
+                apellido : data.apellido,
+                email : data.email,
+                dni : data.dni,
+                genero : data.genero
+            })
+            if(reg){
+            res.status(200).send({data:reg});
+        }else{
+            res.status(500).send({message: 'NoAccess'});
+        }
+
+}
+
+
+const eliminar_paciente_admin = async function(req,res){
+  
+           var id = req.params['id'];
+           let reg = await Paciente.findByIdAndRemove({_id:id});
+           if(reg){
+           res.status(200).send({data:reg});
+
+        }else{
+            res.status(500).send({message: 'NoAccess'});
+        }
+}
+
+
 module.exports = {
-    registro_paciente,
-    login_paciente
+    login_paciente,
+    actualizar_paciente_admin,
+    listar_paciente_filtro_admin,
+    obtener_paciente_admin,
+    eliminar_paciente_admin,
+    registro_paciente_admin,
 }

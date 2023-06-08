@@ -5,7 +5,7 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 @Injectable({
   providedIn: 'root'
 })
-export class MedicoService {
+export class PacienteService {
 
   public url;
 
@@ -14,30 +14,30 @@ export class MedicoService {
   ) {
     this.url = GLOBAL.url;
   }
-  listar_medico_filtro_admin(token:any):Observable<any>{
+  listar_paciente_filtro_admin(token:any):Observable<any>{
     let headers = new HttpHeaders({'Content-Type':'application/json','Authorization':token});
-    return this._http.get(this.url+'listar_medico_filtro_admin',{headers:headers});
+    return this._http.get(this.url+'listar_paciente_filtro_admin',{headers:headers});
 
   }
 
-  registro_medico_admin(data:any,token:any):Observable<any>{
+  registro_paciente_admin(data:any,token:any):Observable<any>{
     let headers = new HttpHeaders({'Content-Type':'application/json','Authorization':token});
-    return this._http.post(this.url+'registro_medico_admin',data,{headers:headers});
+    return this._http.post(this.url+'registro_paciente_admin',data,{headers:headers});
 
   }
-  obtener_medico_admin(id:any,token:any):Observable<any>{
+  obtener_paciente_admin(id:any,token:any):Observable<any>{
     let headers = new HttpHeaders({'Content-Type':'application/json','Authorization':token});
-    return this._http.get(this.url+'obtener_medico_admin/'+id,{headers:headers});
+    return this._http.get(this.url+'obtener_paciente_admin/'+id,{headers:headers});
 
   }
-  actualizar_medico_admin(id:any,data:any,token:any):Observable<any>{
+  actualizar_paciente_admin(id:any,data:any,token:any):Observable<any>{
     let headers = new HttpHeaders({'Content-Type':'application/json','Authorization':token});
-    return this._http.put(this.url+'actualizar_medico_admin/'+id,data,{headers:headers});
+    return this._http.put(this.url+'actualizar_paciente_admin/'+id,data,{headers:headers});
 
   }
-  eliminar_medico_admin(id:any,token:any):Observable<any>{
+  eliminar_paciente_admin(id:any,token:any):Observable<any>{
     let headers = new HttpHeaders({'Content-Type':'application/json','Authorization':token});
-    return this._http.delete(this.url+'eliminar_medico_admin/'+id,{headers:headers});
+    return this._http.delete(this.url+'eliminar_paciente_admin/'+id,{headers:headers});
 
   }
 }

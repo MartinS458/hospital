@@ -1,22 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AdminService } from 'src/app/services/admin.service';
-import { MedicoService } from 'src/app/services/medico.service';
+import { PacienteService } from 'src/app/services/paciente.service';
 declare var iziToast:any;
 @Component({
-  selector: 'app-create-medico',
-  templateUrl: './create-medico.component.html',
-  styleUrls: ['./create-medico.component.css']
+  selector: 'app-create-paciente',
+  templateUrl: './create-paciente.component.html',
+  styleUrls: ['./create-paciente.component.css']
 })
-export class CreateMedicoComponent implements OnInit {
+export class CreatePacienteComponent implements OnInit {
 
-  public medico : any = {
+  public paciente : any = {
     genero: ''
   };
   public token;
 
   constructor(
-    private _medicoService:MedicoService,
+    private _pacienteService:PacienteService,
     private _adminService:AdminService,
     private _router : Router
   ) { 
@@ -28,8 +28,8 @@ export class CreateMedicoComponent implements OnInit {
 
   registro(registroForm:any){
      if(registroForm.valid){
-console.log(this.medico);
-this._medicoService.registro_medico_admin(this.medico,this.token).subscribe(
+console.log(this.paciente);
+this._pacienteService.registro_paciente_admin(this.paciente,this.token).subscribe(
   response=>{
 console.log(response);
 iziToast.show({
@@ -38,17 +38,17 @@ iziToast.show({
         color: '#FFF',
         class: 'text-success',
         position: 'topRight',
-        message: 'se registro correctamente el nuevo medico.',        
+        message: 'se registro correctamente el nuevo paciente.',        
 
       });
-      this.medico={
+      this.paciente={
         genero:'',
         nombre:'',
         apellido:'',
         dni:'',
-        email:''
+        email:'',
       }
-      this._router.navigate(['/panel/medico']);
+      this._router.navigate(['/panel/paciente']);
   },
   error=>{
 console.log(error);

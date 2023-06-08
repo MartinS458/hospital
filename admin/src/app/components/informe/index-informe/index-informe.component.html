@@ -1,15 +1,15 @@
 <app-sidebar></app-sidebar>
 <div class="border-bottom pt-5 mt-2 mb-5">
-    <h1 class="mt-2 mt-md-4 mb-3 pt-5">Medicos</h1>
+    <h1 class="mt-2 mt-md-4 mb-3 pt-5">Informe</h1>
     <div class="d-flex flex-wrap flex-md-nowrap justify-content-between">
-      <p class="text-muted">Este módulo lista todos los medicos</p>
-      <p class="font-size-sm font-weight-medium pl-md-4"><a class="text-nowrap" [routerLink]="['/panel/medico/registro']" >Registrar nuevo<i class="cxi-angle-right font-size-base align-middle ml-1"></i></a></p>
+      <p class="text-muted">Este módulo lista todos los informes</p>
+      <p class="font-size-sm font-weight-medium pl-md-4"><a class="text-nowrap" [routerLink]="['/panel/informe/registro']" >Registrar nuevo<i class="cxi-angle-right font-size-base align-middle ml-1"></i></a></p>
     </div>
   </div>
 
   <div class="card box-shadow-sm">
         <div class="card-header">
-            <h5 style="margin-bottom: 0px;">Filtro de Medicos</h5>
+            <h5 style="margin-bottom: 0px;">Filtro de Informes</h5>
         </div>
         <!-- <div class="card-header">
             <form class="form-inline pt-2">
@@ -32,37 +32,37 @@
                   <thead class="thead-dark">
                     <tr>
                       <th>#</th>
-                      <th>Nombres</th>
-                      <th>Apellidos</th>
-                      <th>Correo</th>
-                      <th>Dni</th>
+                      <th>Medico</th>
+                      <th>Paciente</th>
+                      <th>Descripcion</th>
+                      <th>Medicamento</th>
                       <th>Opciones</th>
                     </tr>
                   </thead>
-                  <tbody *ngFor="let item of medico; let indice = index">
+                  <tbody *ngFor="let item of informe; let indice = index">
                     <tr>
                       <td>{{indice+1}}</td>
-                      <td>{{item.nombre}}</td>
-                      <td>{{item.apellido}}</td>
-                      <td>{{item.email}}</td>
-                      <td>{{item.dni}}</td>
+                      <td>{{item.medico.nombre}}</td>
+                      <td>{{item.paciente.nombre}}</td>
+                      <td>{{item.descripcion}}</td>
+                      <td>{{item.medicamento.producto}}</td>
                       <td>
                         <div class="btn-group dropdown d-inline-block mb-3 me-2">
                           <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">OPCIONES</button>
                           <div class="dropdown-menu">
-                            <a class="dropdown-item" [routerLink]="['/panel/medico',item._id]">Editar Medico</a>
-                            <a class="dropdown-item" style="cursor: pointer;" data-toggle="modal" [attr.data-target]="'#delete-'+item._id">Elimnar Medico</a>                            
+                            <a class="dropdown-item" [routerLink]="['/panel/informe',item._id]">Editar informe</a>
+                            <a class="dropdown-item" style="cursor: pointer;" data-toggle="modal" [attr.data-target]="'#delete-'+item._id">Elimnar informe</a>                            
                           </div>
                         </div>
                         <div class="modal fade" id="delete-{{item._id}}" tabindex="-1" style="display: none;" aria-hidden="true">
                           <div class="modal-dialog modal-dialog-centered" role="document">
                             <div class="modal-content">
                               <div class="modal-header">
-                                <h4 class="modal-title">Eliminar, {{item.nombre}} {{item.apellido}}</h4>
+                                <h4 class="modal-title">Eliminar, {{item.producto}} {{item.descripcion}}</h4>
                                 <button class="btn-close" type="button" data-dismiss="modal" aria-label="Close"></button>
                               </div>
                               <div class="modal-body">
-                                <p class="fs-sm">Desea eliminar este medico?</p>
+                                <p class="fs-sm">Desea eliminar este informe?</p>
                               </div>
                               <div class="modal-footer">
                                 <button class="btn btn-secondary btn-sm" type="button" data-dismiss="modal">Cancelar</button>
@@ -81,7 +81,7 @@
             <ngb-pagination
             [(page)]="page"
             [pageSize]="pageSize"
-            [collectionSize]="medico.length"
+            [collectionSize]="paciente.length"
             ></ngb-pagination>
         </div> -->
   </div>  

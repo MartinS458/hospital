@@ -10,7 +10,8 @@ var MedicamentoSchema = Schema({
     fecha: {type:Date, require: false},
     estado: {type: String, required: false},    
     createdAt: {type:Date, default: Date.now, require: true},
-    productos:[{type: Schema.ObjectId, ref:'producto', required: false}],
+    //producto:[{type: Schema.ObjectId, ref:'producto', required: false}],
+    producto: {type: String, required: true},
 });
 
 module.exports = mongoose.model('medicamento', MedicamentoSchema);

@@ -1,49 +1,49 @@
 <app-sidebar></app-sidebar>
  <!-- Page title-->
  <div class="border-bottom pt-5 mt-2 mb-5">
-    <h1 class="mt-2 mt-md-4 mb-3 pt-5">Medicos</h1>
+    <h1 class="mt-2 mt-md-4 mb-3 pt-5">Pacientes</h1>
     <div class="d-flex flex-wrap flex-md-nowrap justify-content-between">
-      <p class="text-muted">Este módulo lista todos los medicos</p>
+      <p class="text-muted">Este módulo lista todos los pacientes</p>
       
     </div>
   </div>
-    <form #registroForm="ngForm"(ngSubmit)="registro(registroForm)">
+    <form #updateForm="ngForm"(ngSubmit)="actualizar(updateForm)">
         <div class="card box-shadow-sm">
                 <div class="card-header">
-                    <h5 style="margin-bottom: 0px;">Actualizar medicos</h5>
+                    <h5 style="margin-bottom: 0px;">Actualizar pacientes</h5>
                 </div>
-                <div class="card-body">
+                <div class="card-body" *ngIf="paciente != undefined">
                 
                     <div class="row">
                         <div class="col-md-4 form-group">
                         <label for="validationCustom01" class="form-label">Nombres</label>
-                        <input class="form-control" type="text" placeholder="Nombre completo" id="medico.nombre" required name="nombre" [(ngModel)]="medico.nombre">
+                        <input class="form-control" type="text" placeholder="Nombre completo" required name="nombre" [(ngModel)]="paciente.nombre">
                         </div>
                         <div class="col-md-4 form-group">
                         <label for="validationCustom01" class="form-label">Apellidos</label>
-                        <input class="form-control" type="text" placeholder="Apellido completo" required name="apellido" [(ngModel)]="medico.apellido">
+                        <input class="form-control" type="text" placeholder="Apellido completo" required name="apellido" [(ngModel)]="paciente.apellido">
                         </div>
                         <div class="col-md-4 form-group">
                         <label for="validationCustom01" class="form-label">Correo electrónico</label>
-                        <input class="form-control" type="email" placeholder="Correo electrónico" required name="email" [(ngModel)]="medico.email">
+                        <input class="form-control" type="email" placeholder="Correo electrónico" required name="email" [(ngModel)]="paciente.email">
                         </div>
 
                         <!-- <div class="col-md-4 form-group">
                         <label for="validationCustom01" class="form-label">Telefono</label>
-                        <input class="form-control" type="text" placeholder="Telefono" required name="nombres" [(ngModel)]="medico.nombres">
+                        <input class="form-control" type="text" placeholder="Telefono" required name="nombres" [(ngModel)]="paciente.nombres">
                         </div> -->
                         <!-- <div class="col-md-4 form-group">
                         <label for="validationCustom01" class="form-label">Fecha nacimiento</label >
-                        <input class="form-control" type="date" required name="nombres" [(ngModel)]="medico.nombres">
+                        <input class="form-control" type="date" required name="nombres" [(ngModel)]="paciente.nombres">
                         </div> -->
                         <div class="col-md-4 form-group">
                         <label for="validationCustom01" class="form-label">DNI</label>
-                        <input class="form-control" type="number" placeholder="DNI" required name="dni" [(ngModel)]="medico.dni">
+                        <input class="form-control" type="number" placeholder="DNI" required name="dni" [(ngModel)]="paciente.dni">
                         </div>
 
                         <div class="col-md-4">
                         <label for="validationCustom01" class="form-label">Genero</label>
-                        <select class="form-control custom-select" name="genero" required [(ngModel)]="medico.genero">
+                        <select class="form-control custom-select" name="genero" required [(ngModel)]="paciente.genero">
                             <option value="" disabled selected>Seleccionar</option>
                             <option value="Masculino">Masculino</option>
                             <option value="Femenino">Femenino</option>
@@ -52,9 +52,12 @@
                     </div>
                     
                 </div>
+                <div class="card-body" *ngIf="paciente == undefined">
+                    <h3 class="text-center">No se encontro el registro</h3>
+                </div>
                 <div class="card-footer">
-                    <button class="btn btn-primary mr-3" type="submit">Crear medico</button>
-                    <a [routerLink]="['/panel/medico']" class="btn btn-warning">Regresar</a>
+                    <button class="btn btn-primary mr-3" type="submit">Actualizar paciente</button>
+                    <a [routerLink]="['/panel/paciente']" class="btn btn-warning">Regresar</a>
                 </div>
         </div> 
     </form>

@@ -8,8 +8,10 @@ var PacienteSchema = Schema({
     apellido: {type: String, required: true},
     email: {type: String, required: true},
     dni: {type: String, required: true},
-    activo: {type: String, required: false},    
+    //activo: {type: String, required: false},    
     createdAt: {type:Date, default: Date.now, require: true},
+    genero: {type: String, required: false},
+
 });
 
 module.exports = mongoose.model('paciente', PacienteSchema);

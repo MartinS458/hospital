@@ -42,10 +42,10 @@
                   <tbody *ngFor="let item of informe; let indice = index">
                     <tr>
                       <td>{{indice+1}}</td>
-                      <td>{{item.medico.nombre}}</td>
-                      <td>{{item.paciente.nombre}}</td>
+                      <td>{{item.medico}}</td>
+                      <td>{{item.paciente}}</td>
                       <td>{{item.descripcion}}</td>
-                      <td>{{item.medicamento.producto}}</td>
+                      <td>{{item.medicamento}}</td>
                       <td>
                         <div class="btn-group dropdown d-inline-block mb-3 me-2">
                           <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">OPCIONES</button>
@@ -58,7 +58,7 @@
                           <div class="modal-dialog modal-dialog-centered" role="document">
                             <div class="modal-content">
                               <div class="modal-header">
-                                <h4 class="modal-title">Eliminar, {{item.producto}} {{item.descripcion}}</h4>
+                                <h4 class="modal-title">Eliminar, {{item.medico}} {{item.descripcion}}</h4>
                                 <button class="btn-close" type="button" data-dismiss="modal" aria-label="Close"></button>
                               </div>
                               <div class="modal-body">

@@ -12,6 +12,7 @@ import { CreateInformeComponent } from "./components/informe/create-informe/crea
 import { CreateMedicamentoComponent } from "./components/medicamento/create-medicamento/create-medicamento.component";
 import { EditMedicoComponent } from "./components/medico/edit-medico/edit-medico.component";
 import { EditPacienteComponent } from "./components/peciente/edit-paciente/edit-paciente.component";
+import { EditInformeComponent } from "./components/informe/edit-informe/edit-informe.component";
 import { EditMedicamentoComponent } from "./components/medicamento/edit-medicamento/edit-medicamento.component";
 import { CreatePacienteComponent } from "./components/peciente/create-paciente/create-paciente.component";
 const appRoute : Routes = [ 
@@ -32,6 +33,7 @@ const appRoute : Routes = [
 
         {path: 'informe', component: IndexInformeComponent, canActivate:[AdminGuard]},
         {path: 'informe/registro', component: CreateInformeComponent, canActivate: [AdminGuard]},
+        {path: 'informe/:id', component: EditInformeComponent, canActivate: [AdminGuard]},
     ] },
     {path: 'login', component: LoginComponent}
 ]

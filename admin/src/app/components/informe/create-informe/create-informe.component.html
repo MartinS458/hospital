@@ -15,29 +15,23 @@
                 <div class="card-body">
                 
                     <div class="row">
-                        
-                        
-                        <!-- <div class="col-md-4 form-group">
-                        <label for="validationCustom01" class="form-label">Productos</label>
-                        <input class="form-control" type="text" placeholder="Producto" required name="producto" [(ngModel)]="informe.producto">
+                        <div class="col-md-4 form-group">
+                        <label for="validationCustom01" class="form-label">Medico</label>
+                        <input class="form-control" type="text" placeholder="Medico" required name="medico" [(ngModel)]="informe.medico">
+                        </div>
+                        <div class="col-md-4 form-group">
+                        <label for="validationCustom01" class="form-label">Paciente</label>
+                        <input class="form-control" type="text" placeholder="Paciente" required name="paciente" [(ngModel)]="informe.paciente">
                         </div>
                         <div class="col-md-4 form-group">
                         <label for="validationCustom01" class="form-label">Descripcion</label>
                         <input class="form-control" type="text" placeholder="Descripcion" required name="descripcion" [(ngModel)]="informe.descripcion">
                         </div>
                         <div class="col-md-4 form-group">
-                        <label for="validationCustom01" class="form-label">Precio Total</label>
-                        <input class="form-control" type="email" placeholder="Precio Total" required name="precioTotal" [(ngModel)]="informe.precioTotal">
-                        </div> -->
-                        <div class="col-md-4 form-group">
-                            <label for="validationCustom01" class="form-label">Médico</label>
-                            <select class="form-control custom-select" name="select" required [(ngModel)]="id">
-                              <option *ngFor="let item of medico" [value]="item" [selected]="item === selectedMedico">
-                                {{ item }}
-                              </option>
-                            </select>
-                          </div>
-                          
+                        <label for="validationCustom01" class="form-label">Medicamento</label>
+                        <input class="form-control" type="text" placeholder="Medicamento" required name="medicamento" [(ngModel)]="informe.medicamento">
+                        </div>
+                    </div>
                     
                 </div>
                 <div class="card-footer">
@@ -45,4 +39,4 @@
                     <a [routerLink]="['/panel/informe']" class="btn btn-warning">Regresar</a>
                 </div>
         </div> 
-    
+    </form>

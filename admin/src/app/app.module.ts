@@ -18,6 +18,7 @@ import { CreateMedicoComponent } from './components/medico/create-medico/create-
 import { CreateMedicamentoComponent } from './components/medicamento/create-medicamento/create-medicamento.component';
 import { CreateInformeComponent } from './components/informe/create-informe/create-informe.component';
 import { EditMedicoComponent } from './components/medico/edit-medico/edit-medico.component';
+import { EditInformeComponent } from './components/informe/edit-informe/edit-informe.component';
 import { EditMedicamentoComponent } from './components/medicamento/edit-medicamento/edit-medicamento.component';
 import { EditPacienteComponent } from './components/peciente/edit-paciente/edit-paciente.component';
 import { CreatePacienteComponent } from './components/peciente/create-paciente/create-paciente.component';
@@ -36,6 +37,7 @@ import { CreatePacienteComponent } from './components/peciente/create-paciente/c
     CreateInformeComponent,
     EditMedicoComponent,
     EditMedicamentoComponent,
+    EditInformeComponent,
     CreatePacienteComponent,
     EditPacienteComponent,
     IndexInformeComponent,

@@ -1,0 +1,45 @@
+<app-sidebar></app-sidebar>
+ <!-- Page title-->
+ <div class="border-bottom pt-5 mt-2 mb-5">
+    <h1 class="mt-2 mt-md-4 mb-3 pt-5">Informe</h1>
+    <div class="d-flex flex-wrap flex-md-nowrap justify-content-between">
+      <p class="text-muted">Este módulo lista todos los informes</p>
+      
+    </div>
+  </div>
+    <form #updateForm="ngForm"(ngSubmit)="actualizar(updateForm)">
+        <div class="card box-shadow-sm">
+                <div class="card-header">
+                    <h5 style="margin-bottom: 0px;">Actualizar informes</h5>
+                </div>
+                <div class="card-body" *ngIf="informe != undefined">
+                
+                    <div class="row">
+                        <div class="col-md-4 form-group">
+                            <label for="validationCustom01" class="form-label">Medico</label>
+                            <input class="form-control" type="text" placeholder="Medico" required name="medico" [(ngModel)]="informe.medico">
+                            </div>
+                            <div class="col-md-4 form-group">
+                                <label for="validationCustom01" class="form-label">Paciente</label>
+                                <input class="form-control" type="text" placeholder="Paciente" required name="paciente" [(ngModel)]="informe.paciente">
+                                </div>
+                            <div class="col-md-4 form-group">
+                            <label for="validationCustom01" class="form-label">Descripcion</label>
+                            <input class="form-control" type="text" placeholder="Descripcion" required name="descripcion" [(ngModel)]="informe.descripcion">
+                            </div>
+                            <div class="col-md-4 form-group">
+                            <label for="validationCustom01" class="form-label">Medicamento</label>
+                            <input class="form-control" type="email" placeholder="Medicamento" required name="medicamento" [(ngModel)]="informe.medicamento">
+                            </div>
+                    </div>
+                    
+                </div>
+                <div class="card-body" *ngIf="informe == undefined">
+                    <h3 class="text-center">No se encontro el registro</h3>
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-primary mr-3" type="submit">Actualizar informe</button>
+                    <a [routerLink]="['/panel/informe']" class="btn btn-warning">Regresar</a>
+                </div>
+        </div> 
+    </form>

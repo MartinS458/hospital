@@ -40,4 +40,5 @@ export class InformeService {
     return this._http.delete(this.url+'eliminar_informe_admin/'+id,{headers:headers});
 
   }
+  
 }

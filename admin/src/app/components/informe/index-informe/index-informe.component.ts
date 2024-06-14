@@ -17,8 +17,8 @@ export class IndexInformeComponent implements OnInit {
   public token;
   // public page = 1;
   // public pageSize = 1;
-  // public filtro_apellidos = '';
-  // public filtro_correo = '';
+  public filtro_medico = '';
+  public filtro_paciente = '';
 
   constructor(
     private _informeService : InformeService,
@@ -29,46 +29,56 @@ export class IndexInformeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-   this._informeService.listar_informe_filtro_admin(this.token).subscribe(
-    response=>{
-      
-    this.informe = response.data;
-    //console.log(this.informe);
-    },
-    error=>{
-      console.log(error);
-    }
-    );
-    
+     this.init_Data();
+  }
+
+  init_Data(){
+    this._informeService.listar_informe_filtro_admin(null,null).subscribe(
+      response=>{
+        
+      this.informe = response.data;
+      console.log(this.informe);
+      },
+      error=>{
+        console.log(error);
+      }
+      );
   }
  
-// filtro(tipo:any){
+filtro(tipo:any){
  
-//   if(tipo == 'apellidos'){
-//     this._informeService.listar_informe_filtro_admin(tipo,this.filtro_apellidos).subscribe(
-//       response=>{
+  if(tipo == 'medico'){
+   if(this.filtro_medico){
+    this._informeService.listar_informe_filtro_admin(tipo,this.filtro_medico).subscribe(
+      response=>{
         
-//       this.informe = response.data;
-//       //console.log(this.informe);
-//       },
-//       error=>{
-//         console.log(error);
-//       }
-//       );
-//   }else if(tipo == 'correo'){
-//     this._informeService.listar_informe_filtro_admin(tipo,this.filtro_correo).subscribe(
-//       response=>{
+      this.informe = response.data;
+      
+      },
+      error=>{
+        console.log(error);
+      }
+      );
+   }else{
+    this.init_Data();
+   }
+  }else if(tipo == 'paciente'){
+    if(this.filtro_paciente){
+      this._informeService.listar_informe_filtro_admin(tipo,this.filtro_paciente).subscribe(
+        response=>{
+          
+        this.informe = response.data;
         
-//       this.informe = response.data;
-//       console.log(this.informe);
-//       },
-//       error=>{
-//         console.log(error);
-//       }
-//       );
-  
-//   }
-// }
+        },
+        error=>{
+          console.log(error);
+        }
+        );
+    }else{
+      this.init_Data();
+    }
+  }
+}
 eliminar(id:any){
   this._informeService.eliminar_informe_admin(id,this.token).subscribe(
     response=>{

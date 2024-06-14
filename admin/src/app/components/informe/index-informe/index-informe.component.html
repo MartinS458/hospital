@@ -7,25 +7,24 @@
     </div>
   </div>
 
-  <div class="card box-shadow-sm">
+  <div class="card box-shadow-lg">
         <div class="card-header">
             <h5 style="margin-bottom: 0px;">Filtro de Informes</h5>
         </div>
-        <!-- <div class="card-header">
+        <div class="card-header">
             <form class="form-inline pt-2">
-                <label class="sr-only" for="inline-form-input-name">Apellidos</label>
-                <input class="form-control mb-3 mr-sm-4" (keyup)="filtro('apellidos')" name="filtro_apellidos" [(ngModel)]="filtro_apellidos" type="text" id="inline-form-input-name" placeholder="Apellidos">
-                <label class="sr-only" for="inline-form-input-username">Correo</label>
+                <label class="sr-only" for="inline-form-input-name">Medico</label>
+                <input class="form-control mb-3 mr-sm-4" (keyup)="filtro('medico')" name="filtro_medico" [(ngModel)]="filtro_medico" type="text" id="inline-form-input-name" placeholder="medico">
+                <label class="sr-only" for="inline-form-input-username">Paciente</label>
                 <div class="input-group mb-3 mr-sm-4">
                 <div class="input-group-prepend">
-                    <div class="input-group-text">@</div>
                 </div>
-                <input class="form-control" type="text" (keyup)="filtro('correo')" name="filtro_correo" [(ngModel)]="filtro_correo" placeholder="Correo">
+                <input class="form-control" type="text" (keyup)="filtro('paciente')" name="filtro_paciente" [(ngModel)]="filtro_paciente" placeholder="paciente">
                 </div>
             
                 
             </form>
-        </div> -->
+        </div>
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-bordered">
@@ -36,6 +35,7 @@
                       <th>Paciente</th>
                       <th>Descripcion</th>
                       <th>Medicamento</th>
+                      <th>Fecha</th>
                       <th>Opciones</th>
                     </tr>
                   </thead>
@@ -46,6 +46,7 @@
                       <td>{{item.paciente}}</td>
                       <td>{{item.descripcion}}</td>
                       <td>{{item.medicamento}}</td>
+                      <td>{{item.createdAt}}</td>
                       <td>
                         <div class="btn-group dropdown d-inline-block mb-3 me-2">
                           <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">OPCIONES</button>
@@ -85,3 +86,4 @@
             ></ngb-pagination>
         </div> -->
   </div>  
+  

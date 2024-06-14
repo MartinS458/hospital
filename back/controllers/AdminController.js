@@ -3,6 +3,8 @@
 var Admin = require('../models/admin');
 var bcrypt = require('bcrypt-nodejs'); //tenemos que encriptar la contraseña
 var jwt = require('../helpers/jwt');
+
+
 const registro_admin = async function(req,res){
     //
     var data = req.body;
@@ -33,6 +35,10 @@ const registro_admin = async function(req,res){
         res.status(200).send({message:'El correo o el dni ya existe en la base de datos', data:undefined});
     }
 }
+
+
+
+
 const login_admin = async function(req,res){
     var data = req.body;
 

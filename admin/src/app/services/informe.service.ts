@@ -14,9 +14,9 @@ export class InformeService {
   ) {
     this.url = GLOBAL.url;
   }
-  listar_informe_filtro_admin(token:any):Observable<any>{
-    let headers = new HttpHeaders({'Content-Type':'application/json','Authorization':token});
-    return this._http.get(this.url+'listar_informe_filtro_admin',{headers:headers});
+  listar_informe_filtro_admin(tipo:any,filtro:any):Observable<any>{
+    let headers = new HttpHeaders().set('Content-Type','application/json');
+    return this._http.get(this.url+'listar_informe_filtro_admin/'+tipo+'/'+filtro,{headers:headers});
 
   }
 

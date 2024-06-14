@@ -54,8 +54,22 @@ const eliminar_informe_admin = async function(req,res){
     }
 }
 const listar_informe_filtro_admin = async function(req,res){
-    let reg = await Informe.find();
-    res.status(200).send({data:reg});
+    let tipo = req.params['tipo'];
+    let filtro = req.params['filtro'];
+    console.log(tipo);
+    if(tipo == null || tipo == 'null'){
+        let reg = await Informe.find();
+        res.status(200).send({data:reg});
+    }else{
+        if(tipo == 'medico'){
+let reg = await Informe.find({medico:new RegExp(filtro,'i')});
+res.status(200).send({data:reg});
+        }else if(tipo == 'paciente'){
+            let reg = await Informe.find({paciente:new RegExp(filtro,'i')});
+            res.status(200).send({data:reg});
+        }
+    }
+   
 }
 module.exports = {
     actualizar_informe_admin,
